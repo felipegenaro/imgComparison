@@ -1,0 +1,10 @@
+c:\users\user\documents\visual studio 2017\Projects\ImgChinelao\ImgChinelao\bin\Debug\ImgChinelao.exe.config
+c:\users\user\documents\visual studio 2017\Projects\ImgChinelao\ImgChinelao\bin\Debug\ImgChinelao.exe
+c:\users\user\documents\visual studio 2017\Projects\ImgChinelao\ImgChinelao\bin\Debug\ImgChinelao.pdb
+c:\users\user\documents\visual studio 2017\Projects\ImgChinelao\ImgChinelao\obj\Debug\ImgChinelao.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2017\Projects\ImgChinelao\ImgChinelao\obj\Debug\ImgChinelao.Form1.resources
+c:\users\user\documents\visual studio 2017\Projects\ImgChinelao\ImgChinelao\obj\Debug\ImgChinelao.Properties.Resources.resources
+c:\users\user\documents\visual studio 2017\Projects\ImgChinelao\ImgChinelao\obj\Debug\ImgChinelao.csproj.GenerateResource.Cache
+c:\users\user\documents\visual studio 2017\Projects\ImgChinelao\ImgChinelao\obj\Debug\ImgChinelao.exe
+c:\users\user\documents\visual studio 2017\Projects\ImgChinelao\ImgChinelao\obj\Debug\ImgChinelao.pdb
+C:\Users\user\documents\visual studio 2017\Projects\ImgChinelao\ImgChinelao\obj\Debug\ImgChinelao.Form2.resources
