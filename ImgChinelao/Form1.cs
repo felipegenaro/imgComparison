@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace ImgChinelao
@@ -112,35 +113,20 @@ namespace ImgChinelao
                     progressBar1.Value = 100;
                 }
 
-                if (flag3 == true || ((countB3 < countB2) && (countB3 < countB1)))
-                {
-                    MessageBox.Show("Bem vindo Ministro !!");
-                    _login = "ministro";
-                    progressBar1.Value = 0;
-                    count1 = 0;
-                    count2 = 0;
-                    count3 = 0;
-                    countB1 = 0;
-                    countB2 = 0;
-                    countB3 = 0;
-                }
+                int percentB1 = (imgI.Width * 60) / 100;
+                int percentB2 = (imgI.Width * 70) / 100;
+                int percentB3 = (imgI.Width * 85) / 100;
 
-                if (flag2 == true || ((countB2 < countB3) && (countB2 < countB1)))
-                {
-                    MessageBox.Show("Bem vindo Diretor !!");
-                    _login = "diretor";
-                    progressBar1.Value = 0;
-                    count1 = 0;
-                    count2 = 0;
-                    count3 = 0;
-                    countB1 = 0;
-                    countB2 = 0;
-                    countB3 = 0;
-                }
+                int match1 = imgI.Width - countB1;
+                int match2 = imgI.Width - countB2;
+                int match3 = imgI.Width - countB3;
 
-                if (flag1 == true || ((countB1 < countB2) && (countB1 < countB3)))
+                if (match1 >= percentB1 && match1 < percentB2 || countB1 == 0 && flag1)
+                //if (flag1 == true || ((countB1 < countB2) && (countB1 < countB3)))
                 {
-                    MessageBox.Show("Bem vindo Operador !!");
+                    if (countB1 == 0) match1 = 100;
+                    else match1 = (match1 * 100) / imgI.Width;
+                    MessageBox.Show("Match " + match1 + "% \nBem vindo Operador !!");
                     _login = "operador";
                     progressBar1.Value = 0;
                     count1 = 0;
@@ -149,15 +135,53 @@ namespace ImgChinelao
                     countB1 = 0;
                     countB2 = 0;
                     countB3 = 0;
+                    open();
                 }
 
-                if (flag1 == false && flag2 == false && flag3 == false)
+                else if (match2 >= percentB2 && match2 < percentB3 || countB2 == 0 && flag2)
+                //if (flag2 == true || ((countB2 < countB3) && (countB2 < countB1)))
+                {
+                    if (countB2 == 0) match2 = 100;
+                    else match2 = (match2 * 100) / imgI.Width;
+                    MessageBox.Show("Match " + match2 + "% \nBem vindo Diretor !!");
+                    _login = "diretor";
+                    progressBar1.Value = 0;
+                    count1 = 0;
+                    count2 = 0;
+                    count3 = 0;
+                    countB1 = 0;
+                    countB2 = 0;
+                    countB3 = 0;
+                    open();
+                }
+
+                else if (match3 >= percentB3 || countB3 == 0 && flag3)
+                    //if (flag3 == true || ((countB3 < countB2) && (countB3 < countB1)))
+                {
+                    if (countB3 == 0) match3 = 100;
+                    else match3 = (match3 * 100) / imgI.Width;
+                    MessageBox.Show("Match " + match3 + "% \nBem vindo Ministro !!");
+                    _login = "ministro";
+                    progressBar1.Value = 0;
+                    count1 = 0;
+                    count2 = 0;
+                    count3 = 0;
+                    countB1 = 0;
+                    countB2 = 0;
+                    countB3 = 0;
+                    open();
+                }
+
+                else if (flag1 == false && flag2 == false && flag3 == false && match1 == 0 && match2 == 0 && match3 == 0)
                 {
                     MessageBox.Show("Usuario nao consta na base de dados.");
                     progressBar1.Value = 0;
                     flag1 = true;
                     flag2 = true;
                     flag3 = true;
+                    countB1 = 0;
+                    countB2 = 0;
+                    countB3 = 0;
                     return;
                 }
             }
@@ -166,7 +190,10 @@ namespace ImgChinelao
                 MessageBox.Show("Nao foi possivel comparar estas imagens.");
                 return;
             }
+        }
 
+        private void open()
+        {
             Form2 settingsForm = new Form2()
             {
                 loginValue = this._login
