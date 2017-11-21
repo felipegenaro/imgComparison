@@ -8,3 +8,22 @@ c:\users\user\documents\visual studio 2017\Projects\ImgChinelao\ImgChinelao\obj\
 c:\users\user\documents\visual studio 2017\Projects\ImgChinelao\ImgChinelao\obj\Debug\ImgChinelao.exe
 c:\users\user\documents\visual studio 2017\Projects\ImgChinelao\ImgChinelao\obj\Debug\ImgChinelao.pdb
 C:\Users\user\documents\visual studio 2017\Projects\ImgChinelao\ImgChinelao\obj\Debug\ImgChinelao.Form2.resources
+C:\Users\pipob\imgComparisonNB\ImgChinelao\bin\Debug\ImgChinelao.exe.config
+C:\Users\pipob\imgComparisonNB\ImgChinelao\bin\Debug\ImgChinelao.exe
+C:\Users\pipob\imgComparisonNB\ImgChinelao\bin\Debug\ImgChinelao.pdb
+C:\Users\pipob\imgComparisonNB\ImgChinelao\obj\Debug\ImgChinelao.csprojResolveAssemblyReference.cache
+C:\Users\pipob\imgComparisonNB\ImgChinelao\obj\Debug\ImgChinelao.Form1.resources
+C:\Users\pipob\imgComparisonNB\ImgChinelao\obj\Debug\ImgChinelao.Form2.resources
+C:\Users\pipob\imgComparisonNB\ImgChinelao\obj\Debug\ImgChinelao.Properties.Resources.resources
+C:\Users\pipob\imgComparisonNB\ImgChinelao\obj\Debug\ImgChinelao.csproj.GenerateResource.Cache
+C:\Users\pipob\imgComparisonNB\ImgChinelao\obj\Debug\ImgChinelao.exe
+C:\Users\pipob\imgComparisonNB\ImgChinelao\obj\Debug\ImgChinelao.pdb
+C:\Users\pipob\imgComparisonNB\ImgChinelao\bin\Debug\Resources\base.db
+C:\Users\pipob\imgComparisonNB\ImgChinelao\bin\Debug\EntityFramework.dll
+C:\Users\pipob\imgComparisonNB\ImgChinelao\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\pipob\imgComparisonNB\ImgChinelao\bin\Debug\System.Data.SQLite.dll
+C:\Users\pipob\imgComparisonNB\ImgChinelao\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\pipob\imgComparisonNB\ImgChinelao\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\pipob\imgComparisonNB\ImgChinelao\bin\Debug\EntityFramework.xml
+C:\Users\pipob\imgComparisonNB\ImgChinelao\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\pipob\imgComparisonNB\ImgChinelao\bin\Debug\System.Data.SQLite.xml

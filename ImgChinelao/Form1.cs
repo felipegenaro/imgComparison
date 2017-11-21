@@ -16,6 +16,7 @@ namespace ImgChinelao
         Bitmap imgI, imgB1, imgB2, imgB3;
         int count1 = 0, count2 = 0, count3 = 0, countB1 = 0, countB2 = 0, countB3 = 0;
         bool flag1 = true, flag2 = true, flag3 = true;
+        DB db;
 
         public string _login;
 
@@ -24,6 +25,10 @@ namespace ImgChinelao
             //progressBar1.Visible = false;
             //pictureBox1.Visible = false;
             //pictureBox2.Visible = false;
+            db = new DB();
+            openFileDialog1.FileName = "";
+
+
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -44,152 +49,154 @@ namespace ImgChinelao
 
         private void button1_Click(object sender, EventArgs e)
         {
-            progressBar1.Visible = true;
-
-            fnameB1 =
-                @"C:\\Users\\user\\Documents\\Visual Studio 2017\\Projects\\ImgChinelao\\ImgChinelao\\img\\B1.png";
-            fnameB2 =
-                @"C:\\Users\\user\\Documents\\Visual Studio 2017\\Projects\\ImgChinelao\\ImgChinelao\\img\\B2.png";
-            fnameB3 =
-                @"C:\\Users\\user\\Documents\\Visual Studio 2017\\Projects\\ImgChinelao\\ImgChinelao\\img\\B3.png";
-
-            string imgI_ref, imgB1_ref, imgB2_ref, imgB3_ref;
-            imgI = new Bitmap(fnameI);
-            imgB1 = new Bitmap(fnameB1);
-            imgB2 = new Bitmap(fnameB2);
-            imgB3 = new Bitmap(fnameB3);
-
-            progressBar1.Maximum = 100;
-            if (imgI.Width == imgB1.Width && imgI.Height == imgB1.Height)
+            if (openFileDialog1.FileName.ToString() != "")
             {
-                for (int i = 0; i < imgI.Width; i++)
+                progressBar1.Visible = true;
+
+                string imgI_ref, imgB1_ref, imgB2_ref, imgB3_ref;
+
+                imgI = new Bitmap(fnameI);
+                imgB1 = db.getBitmapFromTable("Images", "name='B1'");
+                imgB2 = db.getBitmapFromTable("Images", "name='B2'");
+                imgB3 = db.getBitmapFromTable("Images", "name='B3'");
+
+                progressBar1.Maximum = 100;
+                if (imgI.Width == imgB1.Width && imgI.Height == imgB1.Height)
                 {
-                    for (int j = 0; j < imgI.Height; j++)
+                    for (int i = 0; i < imgI.Width; i++)
                     {
-                        imgI_ref = imgI.GetPixel(i, j).ToString();
-                        imgB1_ref = imgB1.GetPixel(i, j).ToString();
-                        if (imgI_ref != imgB1_ref)
+                        for (int j = 0; j < imgI.Height; j++)
                         {
-                            countB1++;
-                            flag1 = false;
-                            break;
+                            imgI_ref = imgI.GetPixel(i, j).ToString();
+                            imgB1_ref = imgB1.GetPixel(i, j).ToString();
+                            if (imgI_ref != imgB1_ref)
+                            {
+                                countB1++;
+                                flag1 = false;
+                                break;
+                            }
+                            count1++;
                         }
-                        count1++;
+                        progressBar1.Value = 33;
                     }
-                    progressBar1.Value = 33;
-                }
 
-                for (int i = 0; i < imgI.Width; i++)
-                {
-                    for (int j = 0; j < imgI.Height; j++)
+                    for (int i = 0; i < imgI.Width; i++)
                     {
-                        imgI_ref = imgI.GetPixel(i, j).ToString();
-                        imgB2_ref = imgB2.GetPixel(i, j).ToString();
-                        if (imgI_ref != imgB2_ref)
+                        for (int j = 0; j < imgI.Height; j++)
                         {
-                            countB2++;
-                            flag2 = false;
-                            break;
+                            imgI_ref = imgI.GetPixel(i, j).ToString();
+                            imgB2_ref = imgB2.GetPixel(i, j).ToString();
+                            if (imgI_ref != imgB2_ref)
+                            {
+                                countB2++;
+                                flag2 = false;
+                                break;
+                            }
+                            count2++;
                         }
-                        count2++;
+                        progressBar1.Value = 66;
                     }
-                    progressBar1.Value = 66;
-                }
 
-                for (int i = 0; i < imgI.Width; i++)
-                {
-                    for (int j = 0; j < imgI.Height; j++)
+                    for (int i = 0; i < imgI.Width; i++)
                     {
-                        imgI_ref = imgI.GetPixel(i, j).ToString();
-                        imgB3_ref = imgB3.GetPixel(i, j).ToString();
-                        if (imgI_ref != imgB3_ref)
+                        for (int j = 0; j < imgI.Height; j++)
                         {
-                            countB3++;
-                            flag3 = false;
-                            break;
+                            imgI_ref = imgI.GetPixel(i, j).ToString();
+                            imgB3_ref = imgB3.GetPixel(i, j).ToString();
+                            if (imgI_ref != imgB3_ref)
+                            {
+                                countB3++;
+                                flag3 = false;
+                                break;
+                            }
+                            count3++;
                         }
-                        count3++;
+                        progressBar1.Value = 100;
                     }
-                    progressBar1.Value = 100;
-                }
 
-                int percentB1 = (imgI.Width * 60) / 100;
-                int percentB2 = (imgI.Width * 70) / 100;
-                int percentB3 = (imgI.Width * 85) / 100;
+                    int percentB1 = (imgI.Width * 60) / 100;
+                    int percentB2 = (imgI.Width * 70) / 100;
+                    int percentB3 = (imgI.Width * 85) / 100;
 
-                int match1 = imgI.Width - countB1;
-                int match2 = imgI.Width - countB2;
-                int match3 = imgI.Width - countB3;
+                    int match1 = imgI.Width - countB1;
+                    int match2 = imgI.Width - countB2;
+                    int match3 = imgI.Width - countB3;
 
-                if (match1 >= percentB1 && match1 < percentB2 || countB1 == 0 && flag1)
-                //if (flag1 == true || ((countB1 < countB2) && (countB1 < countB3)))
-                {
-                    if (countB1 == 0) match1 = 100;
-                    else match1 = (match1 * 100) / imgI.Width;
-                    MessageBox.Show("Match " + match1 + "% \nBem vindo Operador !!");
-                    _login = "operador";
-                    progressBar1.Value = 0;
-                    count1 = 0;
-                    count2 = 0;
-                    count3 = 0;
-                    countB1 = 0;
-                    countB2 = 0;
-                    countB3 = 0;
-                    open();
-                }
+                    if (match1 >= percentB1 && match1 < percentB2 || countB1 == 0 && flag1)
+                    //if (flag1 == true || ((countB1 < countB2) && (countB1 < countB3)))
+                    {
+                        if (countB1 == 0) match1 = 100;
+                        else match1 = (match1 * 100) / imgI.Width;
+                        MessageBox.Show("Match " + match1 + "% \nBem vindo Operador !!");
+                        _login = "operador";
+                        progressBar1.Value = 0;
+                        count1 = 0;
+                        count2 = 0;
+                        count3 = 0;
+                        countB1 = 0;
+                        countB2 = 0;
+                        countB3 = 0;
+                        open();
+                    }
 
-                else if (match2 >= percentB2 && match2 < percentB3 || countB2 == 0 && flag2)
-                //if (flag2 == true || ((countB2 < countB3) && (countB2 < countB1)))
-                {
-                    if (countB2 == 0) match2 = 100;
-                    else match2 = (match2 * 100) / imgI.Width;
-                    MessageBox.Show("Match " + match2 + "% \nBem vindo Diretor !!");
-                    _login = "diretor";
-                    progressBar1.Value = 0;
-                    count1 = 0;
-                    count2 = 0;
-                    count3 = 0;
-                    countB1 = 0;
-                    countB2 = 0;
-                    countB3 = 0;
-                    open();
-                }
+                    else if (match2 >= percentB2 && match2 < percentB3 || countB2 == 0 && flag2)
+                    //if (flag2 == true || ((countB2 < countB3) && (countB2 < countB1)))
+                    {
+                        if (countB2 == 0) match2 = 100;
+                        else match2 = (match2 * 100) / imgI.Width;
+                        MessageBox.Show("Match " + match2 + "% \nBem vindo Diretor !!");
+                        _login = "diretor";
+                        progressBar1.Value = 0;
+                        count1 = 0;
+                        count2 = 0;
+                        count3 = 0;
+                        countB1 = 0;
+                        countB2 = 0;
+                        countB3 = 0;
+                        open();
+                    }
 
-                else if (match3 >= percentB3 || countB3 == 0 && flag3)
+                    else if (match3 >= percentB3 || countB3 == 0 && flag3)
                     //if (flag3 == true || ((countB3 < countB2) && (countB3 < countB1)))
-                {
-                    if (countB3 == 0) match3 = 100;
-                    else match3 = (match3 * 100) / imgI.Width;
-                    MessageBox.Show("Match " + match3 + "% \nBem vindo Ministro !!");
-                    _login = "ministro";
-                    progressBar1.Value = 0;
-                    count1 = 0;
-                    count2 = 0;
-                    count3 = 0;
-                    countB1 = 0;
-                    countB2 = 0;
-                    countB3 = 0;
-                    open();
-                }
+                    {
+                        if (countB3 == 0) match3 = 100;
+                        else match3 = (match3 * 100) / imgI.Width;
+                        MessageBox.Show("Match " + match3 + "% \nBem vindo Ministro !!");
+                        _login = "ministro";
+                        progressBar1.Value = 0;
+                        count1 = 0;
+                        count2 = 0;
+                        count3 = 0;
+                        countB1 = 0;
+                        countB2 = 0;
+                        countB3 = 0;
+                        open();
+                    }
 
-                else if (flag1 == false && flag2 == false && flag3 == false && match1 == 0 && match2 == 0 && match3 == 0)
+                    else if (flag1 == false && flag2 == false && flag3 == false && match1 == 0 && match2 == 0 && match3 == 0)
+                    {
+                        MessageBox.Show("Usuario nao consta na base de dados.");
+                        progressBar1.Value = 0;
+                        flag1 = true;
+                        flag2 = true;
+                        flag3 = true;
+                        countB1 = 0;
+                        countB2 = 0;
+                        countB3 = 0;
+                        return;
+                    }
+                }
+                else
                 {
-                    MessageBox.Show("Usuario nao consta na base de dados.");
-                    progressBar1.Value = 0;
-                    flag1 = true;
-                    flag2 = true;
-                    flag3 = true;
-                    countB1 = 0;
-                    countB2 = 0;
-                    countB3 = 0;
+                    MessageBox.Show("Nao foi possivel comparar estas imagens.");
                     return;
                 }
+
             }
-            else
-            {
-                MessageBox.Show("Nao foi possivel comparar estas imagens.");
-                return;
+            else{
+                MessageBox.Show("Selecione uma Imagem Antes!.");
             }
+                
         }
 
         private void open()
@@ -201,5 +208,6 @@ namespace ImgChinelao
             settingsForm.Show();
             this.Hide();
         }
+     
     }
 }

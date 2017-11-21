@@ -26,5 +26,10 @@ namespace ImgChinelao
                 button6.Enabled = false;
             }
         }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(1);
+        }
     }
 }
