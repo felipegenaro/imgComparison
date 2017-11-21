@@ -56,9 +56,9 @@ namespace ImgChinelao
                 string imgI_ref, imgB1_ref, imgB2_ref, imgB3_ref;
 
                 imgI = new Bitmap(fnameI);
-                imgB1 = db.getBitmapFromTable("Images", "name='B1'");
-                imgB2 = db.getBitmapFromTable("Images", "name='B2'");
-                imgB3 = db.getBitmapFromTable("Images", "name='B3'");
+                imgB1 = db.getBitmapFromTable("Images", "name='B1'","img");
+                imgB2 = db.getBitmapFromTable("Images", "name='B2'", "img");
+                imgB3 = db.getBitmapFromTable("Images", "name='B3'", "img");
 
                 progressBar1.Maximum = 100;
                 if (imgI.Width == imgB1.Width && imgI.Height == imgB1.Height)

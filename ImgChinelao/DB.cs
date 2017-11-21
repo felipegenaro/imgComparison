@@ -29,9 +29,9 @@ namespace ImgChinelao
             return dt;
         }
 
-        public Bitmap getBitmapFromTable(string table, string where)
+        public Bitmap getBitmapFromTable(string table, string where, string imageField)
         {
-            Byte[] bitmapData = Convert.FromBase64String(FixBase64ForImage(select(table, where).Rows[0].Field<string>("img").ToString()));
+            Byte[] bitmapData = Convert.FromBase64String(FixBase64ForImage(select(table, where).Rows[0].Field<string>(imageField).ToString()));
             System.IO.MemoryStream streamBitmap = new System.IO.MemoryStream(bitmapData);
             Bitmap bitImage = new Bitmap((Bitmap)Image.FromStream(streamBitmap));
             return bitImage;
