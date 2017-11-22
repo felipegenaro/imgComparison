@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace ImgChinelao
@@ -22,13 +21,13 @@ namespace ImgChinelao
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //progressBar1.Visible = false;
-            //pictureBox1.Visible = false;
-            //pictureBox2.Visible = false;
             db = new DB();
             openFileDialog1.FileName = "";
+        }
 
-
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(1);
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -43,7 +42,6 @@ namespace ImgChinelao
                 fnameI = openFileDialog1.FileName.ToString();
                 var imagem1 = Image.FromFile(fnameI);
                 pictureBox1.Image = imagem1;
-                //pictureBox1.Visible = true;
             }
         }
 
@@ -123,80 +121,73 @@ namespace ImgChinelao
                     int match3 = imgI.Width - countB3;
 
                     if (match1 >= percentB1 && match1 < percentB2 || countB1 == 0 && flag1)
-                    //if (flag1 == true || ((countB1 < countB2) && (countB1 < countB3)))
                     {
                         if (countB1 == 0) match1 = 100;
                         else match1 = (match1 * 100) / imgI.Width;
                         MessageBox.Show("Match " + match1 + "% \nBem vindo Operador !!");
                         _login = "operador";
-                        progressBar1.Value = 0;
-                        count1 = 0;
-                        count2 = 0;
-                        count3 = 0;
-                        countB1 = 0;
-                        countB2 = 0;
-                        countB3 = 0;
+                        resetCount();
                         open();
                     }
 
                     else if (match2 >= percentB2 && match2 < percentB3 || countB2 == 0 && flag2)
-                    //if (flag2 == true || ((countB2 < countB3) && (countB2 < countB1)))
                     {
                         if (countB2 == 0) match2 = 100;
                         else match2 = (match2 * 100) / imgI.Width;
                         MessageBox.Show("Match " + match2 + "% \nBem vindo Diretor !!");
                         _login = "diretor";
-                        progressBar1.Value = 0;
-                        count1 = 0;
-                        count2 = 0;
-                        count3 = 0;
-                        countB1 = 0;
-                        countB2 = 0;
-                        countB3 = 0;
+                        resetCount();
                         open();
                     }
 
                     else if (match3 >= percentB3 || countB3 == 0 && flag3)
-                    //if (flag3 == true || ((countB3 < countB2) && (countB3 < countB1)))
                     {
                         if (countB3 == 0) match3 = 100;
                         else match3 = (match3 * 100) / imgI.Width;
                         MessageBox.Show("Match " + match3 + "% \nBem vindo Ministro !!");
                         _login = "ministro";
-                        progressBar1.Value = 0;
-                        count1 = 0;
-                        count2 = 0;
-                        count3 = 0;
-                        countB1 = 0;
-                        countB2 = 0;
-                        countB3 = 0;
+                        resetCount();
                         open();
                     }
 
-                    else if (flag1 == false && flag2 == false && flag3 == false && match1 == 0 && match2 == 0 && match3 == 0)
+                    else if (flag1 == false && flag2 == false && flag3 == false || match1 <= 0 && match2 <= 0 && match3 <= 0)
                     {
-                        MessageBox.Show("Usuario nao consta na base de dados.");
+                        MessageBox.Show("Usuario não consta na base de dados.");
                         progressBar1.Value = 0;
-                        flag1 = true;
-                        flag2 = true;
-                        flag3 = true;
-                        countB1 = 0;
-                        countB2 = 0;
-                        countB3 = 0;
+                        flags();
+                        resetCount();
                         return;
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Nao foi possivel comparar estas imagens.");
+                    MessageBox.Show("Não foi possivel comparar estas imagens.");
                     return;
                 }
 
             }
             else{
-                MessageBox.Show("Selecione uma Imagem Antes!.");
+                MessageBox.Show("Selecione uma Imagem Antes !!");
             }
                 
+        }
+
+        private void resetCount()
+        {
+            progressBar1.Value = 0;
+            count1 = 0;
+            count2 = 0;
+            count3 = 0;
+            countB1 = 0;
+            countB2 = 0;
+            countB3 = 0;
+        }
+
+        private void flags()
+        {
+            flag1 = true;
+            flag2 = true;
+            flag3 = true;
         }
 
         private void open()

@@ -117,4 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>Lorem Ipsum
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at velit tempus, pharetra mauris vitae, fermentum ipsum. Donec aliquet aliquam pulvinar. Pellentesque ut facilisis elit. Maecenas a suscipit mi. Curabitur eget laoreet ante. In hac habitasse platea dictumst. Pellentesque a rhoncus dolor. Donec iaculis arcu dolor, at tristique diam consequat quis. Vestibulum ut dolor quis sapien condimentum facilisis et sit amet arcu. Proin eleifend lacus purus, at iaculis lectus auctor sed. Sed posuere ligula mauris, vel cursus tellus tincidunt ut. Nam non sagittis orci.
+
+Suspendisse justo magna, mattis non dui in, cursus tincidunt ligula. Etiam eu urna felis. Morbi et dui quis metus consequat laoreet. Phasellus mauris nibh, aliquet egestas justo a, egestas varius nunc. Fusce accumsan ante eu dolor fringilla, id tempor augue dignissim. Mauris vitae blandit nunc. Morbi eu euismod massa, eget sollicitudin ex. Sed felis magna, rutrum et augue facilisis, ornare congue magna. Integer et mauris efficitur, tincidunt justo a, mollis dolor. Sed mattis lorem dapibus scelerisque ultricies.</value>
+  </data>
 </root>
