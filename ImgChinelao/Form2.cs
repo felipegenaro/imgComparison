@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace ImgChinelao
+namespace BiometricAuth
 {
     public partial class Form2 : Form
     {

@@ -3,7 +3,7 @@ using System.Data;
 using System.Drawing;
 using System.Data.SQLite;
 
-namespace ImgChinelao
+namespace BiometricAuth
 {
     class DB
     {

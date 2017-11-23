@@ -1,4 +1,4 @@
-﻿namespace ImgChinelao
+﻿namespace BiometricAuth
 {
     partial class Form1
     {

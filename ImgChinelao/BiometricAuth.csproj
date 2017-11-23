@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B68D06EA-0DB1-4F53-A747-A1F36EBA9A29}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ImgChinelao</RootNamespace>
-    <AssemblyName>ImgChinelao</AssemblyName>
+    <RootNamespace>BiometricAuth</RootNamespace>
+    <AssemblyName>BiometricAuth</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
